@@ -7,11 +7,16 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "produit")
+@NamedQueries({
+        @NamedQuery(name = "Produit.findById", query = "SELECT a FROM Produit a WHERE a.id = :id"),
+        @NamedQuery(name = "Produit.findByName", query = "SELECT a FROM Produit a WHERE a.nom = :nom")
+})
 public class Produit implements Serializable {
     public Produit() {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private int id;
 

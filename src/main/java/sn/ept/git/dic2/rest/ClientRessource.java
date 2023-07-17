@@ -65,7 +65,7 @@ public class ClientRessource {
     }
 
     @GET
-    @Path("/alllClients")
+    @Path("/allClients")
     public Response getAllClients() {
         List<Client> allClients = clientFacade.findAll();
         if (allClients.isEmpty()) {
