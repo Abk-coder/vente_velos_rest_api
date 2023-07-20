@@ -1,9 +1,6 @@
 package sn.ept.git.dic2.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -11,9 +8,13 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "article_commande")
+@NamedQueries({
+        @NamedQuery(name = "ArticleCommande.findById", query = "SELECT a FROM ArticleCommande a WHERE a.id.numeroCommande = :numCommande AND a.id.ligne= :ligne")
+})
 public class ArticleCommande implements Serializable{
 
     @EmbeddedId
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private ArticleCommandeId id;
 
     public ArticleCommande() {
@@ -26,16 +27,23 @@ public class ArticleCommande implements Serializable{
         this.remise = remise;
     }
 
-    @Column(name = "QUANTITE", nullable = false)
     private int quantite;
 
-    @Column(name = "PRIX_DEPART", nullable = false)
+    @Column(name = "prix_depart", nullable = false)
     private double prixDepart;
 
-    @Column(name = "REMISE", nullable = false)
     private double remise;
 
-    // Getters and setters
+    private int produit_id;
+
+    public int getProduit_id() {
+        return produit_id;
+    }
+
+    public void setProduit_id(int produit_id) {
+        this.produit_id = produit_id;
+    }
+// Getters and setters
 
     public ArticleCommandeId getId() {
         return id;

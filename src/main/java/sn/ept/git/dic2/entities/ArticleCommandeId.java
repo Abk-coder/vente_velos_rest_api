@@ -2,6 +2,8 @@ package sn.ept.git.dic2.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -9,10 +11,10 @@ import java.util.Objects;
 @Embeddable
 public class ArticleCommandeId implements Serializable {
 
-    @Column(name = "NUMERO_COMMANDE", nullable = false)
+    @Column(name = "numero_commande", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int numeroCommande;
 
-    @Column(name = "LIGNE", nullable = false)
     private int ligne;
 
     public int getNumeroCommande() {

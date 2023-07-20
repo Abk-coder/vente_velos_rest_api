@@ -17,10 +17,10 @@ public class Produit implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "NOM", nullable = false)
+    @Column(name = "nom", nullable = false)
     private String nom;
 
     public Produit(int id, String nom, Marque marque, Categorie categorie, int anneeModel, Double prixDepart) {
@@ -33,17 +33,17 @@ public class Produit implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "MARQUE_ID", nullable = false)
+    @JoinColumn(name = "marque_id", nullable = false)
     private Marque marque;
 
     @ManyToOne
-    @JoinColumn(name = "CATEGORIE_ID", nullable = false)
+    @JoinColumn(name = "categorie_id", nullable = false)
     private Categorie categorie;
 
-    @Column(name = "ANNEE_MODEL", nullable = false)
+    @Column(name = "annee_model", nullable = false)
     private int anneeModel;
 
-    @Column(name = "PRIX_DEPART", nullable = false)
+    @Column(name = "prix_depart", nullable = false)
     private Double prixDepart;
 
     // Getters and setters
