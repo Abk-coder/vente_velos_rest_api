@@ -10,31 +10,29 @@ import java.util.Date;
 public class Commande implements Serializable{
 
     @Id
-    @Column(name = "NUMERO")
     private int numero;
 
     @ManyToOne
-    @JoinColumn(name = "CLIENT_ID")
+    @JoinColumn(name = "client_id")
     private Client client;
 
-    @Column(name = "STATUT", nullable = false)
     private int statut;
 
-    @Column(name = "DATE_COMMANDE", nullable = false)
+    @Column(name = "date_commande", nullable = false)
     private Date dateCommande;
 
-    @Column(name = "DATE_LIVRAISON_VOULUE", nullable = false)
+    @Column(name = "date_livraison_voulue", nullable = false)
     private Date dateLivraisonVoulue;
 
-    @Column(name = "DATE_LIVRAISON")
+    @Column(name = "date_livraison")
     private Date dateLivraison;
 
     @ManyToOne
-    @JoinColumn(name = "MAGASIN_ID", nullable = false)
+    @JoinColumn(name = "magasin_id", nullable = false)
     private Magasin magasin;
 
     @ManyToOne
-    @JoinColumn(name = "VENDEUR_ID", nullable = false)
+    @JoinColumn(name = "vendeur_id", nullable = false)
     private Employe vendeur;
 
     // Getters and setters
